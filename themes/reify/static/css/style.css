@@ -1,0 +1,42 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0;}
+body { line-height: 1.5; font-size: 100%; -webkit-font-smoothing: antialiased; }
+img, picture, video, canvas, svg { display: block; max-width: 100%; }
+input, button, textarea, select { font: inherit; }
+p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
+html { -moz-text-size-adjust: none; -webkit-text-size-adjust: none; text-size-adjust: none; }
+
+body {
+    font-family: 'Recursive', monospace;
+    color: #eeeeee;
+    background: #2c2c2c;
+    padding: 8em 16em;
+}
+
+a, a:visited {
+    color: #cccccc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+article {
+    font-size: 18px;
+    max-width: 40em;
+
+    h1 {
+      position: relative;
+      padding-left: 1em;
+      overflow: hidden;
+    }
+
+    h1:before {
+      content: "#";
+      color: #888888;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+}
+

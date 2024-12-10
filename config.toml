@@ -1,0 +1,4 @@
+baseURL = 'https://mikepjb.com/'
+languageCode = 'en-us'
+title = 'Mike Bruce'
+theme = 'reify'
