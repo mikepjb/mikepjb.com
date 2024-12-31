@@ -2,7 +2,9 @@
 <html lang="en">
     {{ partial "partials/head.html" }}
     <body>
+        {{ partial "partials/header.html" }}
         <article>
+            <h4>{{ .Title }}</h4>
             {{ .Content }}
         </article>
     </body>
