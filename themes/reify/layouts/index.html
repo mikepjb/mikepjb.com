@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-    {{ partial "partials/head.html" }}
+    {{ partial "partials/head.html" . }}
     <body>
-        {{ partial "partials/header.html" }}
+        {{ partial "partials/header.html" . }}
 
-        <main>
+        <main class="preamble">
             {{ .Content }}
         </main>
 
-        {{- range .Data.Pages.GroupByDate "2006" -}}
-          {{- range site.Pages -}}
-            <h3>
-              <a href = "{{- .RelPermalink -}}">
-                {{- .Title -}}
-              </a>
-            </h3>
-          {{- end -}}
-        {{- end -}}
+        {{ $pages := where .Site.RegularPages "Section" "articles" }}
+        
+        {{/* Group articles by year */}}
+        {{ $years := $pages.GroupByDate "2006" }}
+        
+        {{/* Sort years in descending order */}}
+        {{ range $years.Reverse }}
+            <section class="year-section">
+                <h2>{{ .Key }}</h2>
+                <ul>
+                    {{/* Sort articles within each year by date */}}
+                    {{ range .Pages.ByDate.Reverse }}
+                        <li>
+                            <article>
+                                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                                {{ if .Params.description }}
+                                    <p>{{ .Params.description }}</p>
+                                {{ end }}
+                            </article>
+                        </li>
+                    {{ end }}
+                </ul>
+            </section>
+        {{ end }}
     </body>
 </html>

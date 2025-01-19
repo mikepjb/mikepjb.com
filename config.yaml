@@ -1,0 +1,18 @@
+baseURL: 'https://mikepjb.com/'
+languageCode: 'en-us'
+title: 'Mike Bruce'
+theme: 'reify'
+menu:
+  main:
+    - identifier: "articles"
+      name: "Articles"
+      url: "/"
+      weight: 1
+    - identifier: "reference"
+      name: "Reference"
+      url: "/reference/"
+      weight: 2
+    - identifier: "talks"
+      name: "Talks"
+      url: "/talks/"
+      weight: 3

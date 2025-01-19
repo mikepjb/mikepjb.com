@@ -5,48 +5,127 @@ input, button, textarea, select { font: inherit; }
 p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
 html { -moz-text-size-adjust: none; -webkit-text-size-adjust: none; text-size-adjust: none; }
 
+:root {
+    --body-width: 1440px;
+    --width: 575px;
+    --border: 1.5px;
+    --gray: rgba(255, 255, 255, 0.2);
+    --dark-gray: rgba(255, 255, 255, 0.8);
+    --hash-gray: rgba(255, 255, 255, 0.2);
+}
+
 body {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
     font-family: 'Recursive', monospace;
+    font-size: 1.25rem;
     color: #eeeeee;
     background: #2c2c2c;
-    padding: 8em 16em;
+    padding: 8em 0;
+    max-width: var(--body-width);
 }
 
 nav {
     display: flex;
     justify-content: space-between;
+    padding-bottom: 5rem;
+
+    div {
+        display: inline-flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
 }
 
 a, a:visited {
     color: #cccccc;
     text-decoration: none;
+    border-bottom: var(--border) solid var(--gray);
+}
+
+a:current {
+    color: #880000;
 }
 
 a:hover {
-    text-decoration: underline;
+    border-bottom: var(--border) solid var(--dark-gray);
 }
 
-h4 {
-    font-size: 12px;
-    font-weight: 900;
+p, h1, h2, h3, h4 {
+    overflow-wrap: break-word;
 }
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 900;
+    padding: 2rem 0;
+}
+
+h1 { font-size: 32px; }
+h2 { font-size: 28px; }
+h3 { font-size: 24px; }
+h4 { font-size: 20px; }
 
 article {
     font-size: 18px;
-    max-width: 40em;
+    max-width: 40rem;
 
-    h1 {
-      position: relative;
-      padding-left: 1em;
-      overflow: hidden;
+    h1, h2, h3, h4, h5, h6 {
+        position: relative;
+        overflow: hidden;
+    }
+
+    h1 { padding-left: 1.8rem; }
+    h2 { padding-left: 2.5rem; }
+    h3 { padding-left: 2.5rem; }
+    h4 { padding-left: 3.0rem; }
+    h5 { padding-left: 3.5rem; }
+
+    h1:before, h2:before, h3:before, h4:before, h5:before {
+        color: var(--hash-gray);
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding: 2rem 0;
     }
 
     h1:before {
-      content: "#";
-      color: #888888;
-      position: absolute;
-      left: 0;
-      top: 0;
+        content: "#";
+    }
+
+    h2:before {
+        content: "##";
+    }
+
+    p {
+        line-height: 1.8rem;
+        padding: .5em 0;
+    }
+
+    li {
+        padding: .25em 0;
     }
 }
 
+.year-section {
+    margin-top: 2rem;
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+        gap: .5rem;
+        list-style: none;
+    }
+}
+
+.content > *, .preamble > * {
+    width: 96vw;
+    max-width: var(--width);
+}
+
+main {
+    p {
+        padding: .5em 0;
+    }
+}

@@ -1,11 +1,13 @@
 <nav>
     <div>
-        <a href="/">Mike Bruce</a>
+      {{ $currentPage := . }}
+      {{ range .Site.Menus.main }}
+        <a href="{{ .URL }}" class="{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}active{{ end }}">
+          {{ .Name }}
+        </a>
+      {{ end }}
     </div>
     <div>
-        <a href="/reference/">Reference</a>
-        <a href="/articles/">Articles</a>
-        <a href="/talks/">Talks</a>
         <a href="https://github.com/mikepjb">GH</a>
         <a href="https://hypalynx.com">HL</a>
         <a href="/about/">About</a>
