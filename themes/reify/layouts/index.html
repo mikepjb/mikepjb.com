@@ -11,7 +11,7 @@
         {{ $pages := where .Site.RegularPages "Section" "articles" }}
         
         {{/* Group articles by year */}}
-        {{ $years := $pages.GroupByDate "2006" }}
+        {{ $years := $pages.GroupByDate "2006" "asc" }}
         
         {{/* Sort years in descending order */}}
         {{ range $years.Reverse }}
